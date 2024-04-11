@@ -7,7 +7,7 @@ ScriptedImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-  script: {instanceID: 0}
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
@@ -130,7 +130,7 @@ ScriptedImporter:
       y: 4
       width: 16
       height: 16
-    spriteID: 5645ec6efdbcab744a079c1b27212e79
+    spriteID: 931b2f35e1e7f994cbe4e455b4e2d883
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -150,7 +150,7 @@ ScriptedImporter:
       y: 28
       width: 16
       height: 16
-    spriteID: fd4c9cc85d5842c41aef90910c0fdaeb
+    spriteID: bec9251de82032342a94031ad2cdb859
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -170,7 +170,7 @@ ScriptedImporter:
       y: 4
       width: 16
       height: 16
-    spriteID: 15b4e6a4a716188478e42a340fcf7d07
+    spriteID: b57f8227594b3d44caaea3395b2859b0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -190,7 +190,7 @@ ScriptedImporter:
       y: 28
       width: 16
       height: 16
-    spriteID: 512eea7dc715771459f7da6de1120770
+    spriteID: f798bd873a45c7643b71e4f291652e70
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -215,7 +215,7 @@ ScriptedImporter:
         y: 0
         width: 16
         height: 16
-      spriteId: 5645ec6efdbcab744a079c1b27212e79
+      spriteId: 931b2f35e1e7f994cbe4e455b4e2d883
     - name: down_Frame_1
       frameIndex: 1
       cellRect:
@@ -223,7 +223,7 @@ ScriptedImporter:
         y: 0
         width: 16
         height: 16
-      spriteId: fd4c9cc85d5842c41aef90910c0fdaeb
+      spriteId: bec9251de82032342a94031ad2cdb859
     - name: down_Frame_2
       frameIndex: 2
       cellRect:
@@ -231,7 +231,7 @@ ScriptedImporter:
         y: 0
         width: 16
         height: 16
-      spriteId: 15b4e6a4a716188478e42a340fcf7d07
+      spriteId: b57f8227594b3d44caaea3395b2859b0
     - name: down_Frame_3
       frameIndex: 3
       cellRect:
@@ -239,7 +239,7 @@ ScriptedImporter:
         y: 0
         width: 16
         height: 16
-      spriteId: 512eea7dc715771459f7da6de1120770
+      spriteId: f798bd873a45c7643b71e4f291652e70
     linkedCells: []
     parentIndex: -1
   platformSettings: []

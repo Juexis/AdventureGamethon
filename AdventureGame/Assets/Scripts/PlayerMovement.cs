@@ -23,17 +23,15 @@ public class PlayerMovement : MonoBehaviour
 
         Debug.Log(horizontalInput + " " + verticalInput);
 
-        if (verticalInput < 0)
+        //set player animations
+        playerAnim.SetFloat("Horizontal", rb.velocity.x);
+        playerAnim.SetFloat("Vertical", rb .velocity.y);
+
+        //checks if last input given and sets it to the lastmove variables
+        if (Input.GetAxis("Horizontal") == 1 || Input.GetAxis("Horizontal") == -1 || Input.GetAxis("Vertical") == 1 || Input.GetAxis("Vertical") == -1)
         {
-            playerAnim.SetFloat("Vertical", -1);
-        }
-        else if (verticalInput > 0)
-        {
-            playerAnim.SetFloat("Vertical", 1);
-        }
-        else
-        {
-            playerAnim.SetFloat("Vertical", 0);
+            playerAnim.SetFloat("lastmoveX", Input.GetAxis("Horizontal"));
+            playerAnim.SetFloat("lastmoveY", Input.GetAxis("Vertical"));
         }
     }
 
