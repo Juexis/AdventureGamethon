@@ -23,13 +23,11 @@ public class Bedtext : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             bedText.text = "This is a bed";
-            text1 = true;
-            while (text1 == true)
+            Invoke("nextBox", 1);
+            if (text1 == true && Input.GetKeyDown(KeyCode.E))
             {
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    bedText.text = "You are not sleepy";
-                }
+                bedText.text = "You are not sleepy";
+                
             }
 
         }
@@ -38,5 +36,11 @@ public class Bedtext : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         bedText.text = "";
+        text1 = false;
+    }
+
+    private void nextBox()
+    {
+        text1 = true;
     }
 }
