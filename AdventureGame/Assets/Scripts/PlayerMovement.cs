@@ -18,10 +18,12 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //INPUTS
+        //movement
         horizontalInput = Input.GetAxis("Horizontal") * Time.deltaTime;
         verticalInput = Input.GetAxis("Vertical") * Time.deltaTime;
 
-        Debug.Log(horizontalInput + " " + verticalInput);
+        //interact
 
         //set player animations
         playerAnim.SetFloat("Horizontal", rb.velocity.x);
@@ -35,6 +37,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (Input.GetButton("Fire1"))
+        {
+            Debug.Log(collision.gameObject.name);
+        }
+        
+    }
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontalInput, verticalInput).normalized * speed;
