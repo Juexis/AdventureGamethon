@@ -169,6 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textbox: {fileID: 1716504881}
   InteractScript: {fileID: 209513808}
+  PlayerMovement: {fileID: 1372048662}
 --- !u!1 &209513807
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,6 +585,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAnim: {fileID: 1372048667}
   rb: {fileID: 1372048666}
+  InteractScript: {fileID: 209513808}
+  DialougeSystem: {fileID: 82171413}
 --- !u!212 &1372048663
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -875,7 +878,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 253.2}
+  m_AnchoredPosition: {x: 381, y: 164}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1660057539 &9223372036854775807
