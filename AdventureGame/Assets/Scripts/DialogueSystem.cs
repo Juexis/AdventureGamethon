@@ -8,6 +8,7 @@ public class DialogueSystem : MonoBehaviour
 {
     public TextMeshProUGUI textbox;
     public Interactable InteractScript;
+    public PlayerMovement Pmove;
     string dialogue;
     string objectName;
 
@@ -17,22 +18,25 @@ public class DialogueSystem : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetButton("Fire1"))
-        {
-            InteractScript.GetName();
 
-            switch (objectName)
-            {
-                case "Bed":
-                    dialogue = "You are not tired...";
-                    UpdateText(dialogue);
-                    break;
-            }
-        }
     }
 
     public void UpdateText(string dialogue)
     {
         textbox.text = dialogue;
     } 
+
+    public void GenerateDialogue(string name)
+    {
+        objectName = name;
+
+        switch (objectName)
+        {
+            case "Bed":
+                Pmove.InDialogue();
+                dialogue = "You are not tired...";
+                UpdateText(dialogue);
+                break;
+        }
+    }
 }

@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     float speed = 4;
     float horizontalInput;
     float verticalInput;
+    public bool inDialogue;
     public Animator playerAnim;
     public Rigidbody2D rb;
     // Start is called before the first frame update
@@ -20,34 +21,34 @@ public class PlayerMovement : MonoBehaviour
     {
         //INPUTS
         //movement
-        horizontalInput = Input.GetAxis("Horizontal") * Time.deltaTime;
-        verticalInput = Input.GetAxis("Vertical") * Time.deltaTime;
-
-        //interact
-
-        //set player animations
-        playerAnim.SetFloat("Horizontal", rb.velocity.x);
-        playerAnim.SetFloat("Vertical", rb .velocity.y);
-
-        //checks if last input given and sets it to the lastmove variables
-        if (Input.GetAxis("Horizontal") == 1 || Input.GetAxis("Horizontal") == -1 || Input.GetAxis("Vertical") == 1 || Input.GetAxis("Vertical") == -1)
+        if (!inDialogue)
         {
-            playerAnim.SetFloat("lastmoveX", Input.GetAxis("Horizontal"));
-            playerAnim.SetFloat("lastmoveY", Input.GetAxis("Vertical"));
-        }
-    }
+           horizontalInput = Input.GetAxis("Horizontal") * Time.deltaTime;
+           verticalInput = Input.GetAxis("Vertical") * Time.deltaTime;
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (Input.GetButton("Fire1"))
-        {
-            Debug.Log(collision.gameObject.name);
+            //interact
+
+            //set player animations
+            playerAnim.SetFloat("Horizontal", rb.velocity.x);
+            playerAnim.SetFloat("Vertical", rb.velocity.y);
+
+            //checks if last input given and sets it to the lastmove variables
+            if (Input.GetAxis("Horizontal") == 1 || Input.GetAxis("Horizontal") == -1 || Input.GetAxis("Vertical") == 1 || Input.GetAxis("Vertical") == -1)
+            {
+                playerAnim.SetFloat("lastmoveX", Input.GetAxis("Horizontal"));
+                playerAnim.SetFloat("lastmoveY", Input.GetAxis("Vertical"));
+            }
         }
         
     }
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontalInput, verticalInput).normalized * speed;
+    }
+
+    public void InDialogue()
+    {
+        inDialogue = true;
     }
 
 }

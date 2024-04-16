@@ -6,6 +6,7 @@ public class Interactable : MonoBehaviour
 {
     string objectName;
     public GameObject Player;
+    public DialogueSystem Ds;
     private void Start()
     {
         objectName = gameObject.name;
@@ -14,18 +15,13 @@ public class Interactable : MonoBehaviour
     private void Update()
     {
 
-
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Player" && Input.GetButton("Fire1"))
+        if (collision.gameObject.name == "Player" && (Input.GetButton("Fire1")))
         {
-            GetName();
+            Ds.GenerateDialogue(objectName);
         }
-    }
-    public string GetName()
-    {
-        return objectName;
     }
 }
 
