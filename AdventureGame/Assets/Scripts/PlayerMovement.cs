@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -9,6 +10,10 @@ public class PlayerMovement : MonoBehaviour
     float verticalInput;
     public Animator playerAnim;
     public Rigidbody2D rb;
+    public Interactable InteractScript;
+    public DialogueSystem DialougeSystem;
+    private string objectName2;
+    bool stopmovement;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,21 +25,30 @@ public class PlayerMovement : MonoBehaviour
     {
         //INPUTS
         //movement
-        horizontalInput = Input.GetAxis("Horizontal") * Time.deltaTime;
-        verticalInput = Input.GetAxis("Vertical") * Time.deltaTime;
-
-        //interact
-
-        //set player animations
-        playerAnim.SetFloat("Horizontal", rb.velocity.x);
-        playerAnim.SetFloat("Vertical", rb .velocity.y);
-
-        //checks if last input given and sets it to the lastmove variables
-        if (Input.GetAxis("Horizontal") == 1 || Input.GetAxis("Horizontal") == -1 || Input.GetAxis("Vertical") == 1 || Input.GetAxis("Vertical") == -1)
+        stopmovement = DialougeSystem.pause();
+        if (stopmovement)
         {
-            playerAnim.SetFloat("lastmoveX", Input.GetAxis("Horizontal"));
-            playerAnim.SetFloat("lastmoveY", Input.GetAxis("Vertical"));
+            Debug.Log("5");
         }
+        if (!stopmovement)
+        {
+            horizontalInput = Input.GetAxis("Horizontal") * Time.deltaTime;
+            verticalInput = Input.GetAxis("Vertical") * Time.deltaTime;
+
+            //interact
+
+            //set player animations
+            playerAnim.SetFloat("Horizontal", rb.velocity.x);
+            playerAnim.SetFloat("Vertical", rb.velocity.y);
+
+            //checks if last input given and sets it to the lastmove variables
+            if (Input.GetAxis("Horizontal") == 1 || Input.GetAxis("Horizontal") == -1 || Input.GetAxis("Vertical") == 1 || Input.GetAxis("Vertical") == -1)
+            {
+                playerAnim.SetFloat("lastmoveX", Input.GetAxis("Horizontal"));
+                playerAnim.SetFloat("lastmoveY", Input.GetAxis("Vertical"));
+            }
+        }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -45,9 +59,20 @@ public class PlayerMovement : MonoBehaviour
         }
         
     }
+
+
+    public string GetName2()
+    {
+        return objectName2;
+    }
+
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontalInput, verticalInput).normalized * speed;
+        if (!stopmovement)
+        {
+            rb.velocity = new Vector2(horizontalInput, verticalInput).normalized * speed;
+        }
+
     }
 
 }

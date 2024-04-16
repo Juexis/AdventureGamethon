@@ -1,28 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    string objectName;
+    private string objectName;
     public GameObject Player;
     private void Start()
     {
-        objectName = gameObject.name;
+        
     }
 
     private void Update()
     {
-
+        objectName = "";
+        GetName();
 
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Player" && Input.GetButton("Fire1"))
+        if (collision.gameObject.name == "Player" && Input.GetButtonDown("Fire1"))
         {
+            objectName = gameObject.name;
             GetName();
+            Debug.Log("1");
+
         }
     }
+
+
+
+
+
     public string GetName()
     {
         return objectName;

@@ -6,6 +6,7 @@ public class Bedtext : MonoBehaviour
 {
     public TextMeshProUGUI bedText;
     bool text1 = false; 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +39,7 @@ public class Bedtext : MonoBehaviour
         bedText.text = "";
         text1 = false;
     }
+
 
     private void nextBox()
     {
