@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 209513810}
   - component: {fileID: 209513809}
   - component: {fileID: 209513808}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -372,7 +372,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -649,7 +649,7 @@ GameObject:
   - component: {fileID: 1372048665}
   - component: {fileID: 1372048666}
   - component: {fileID: 1372048667}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
