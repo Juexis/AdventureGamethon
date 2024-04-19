@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEditor;
+using UnityEngine.Analytics;
 
 public class DialogueSystem : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class DialogueSystem : MonoBehaviour
     public PlayerMovement Pmove;
     string dialogue;
     string objectName;
+    [SerializeField] private Health playerHealth;
+
 
     private void Start()
     {
@@ -18,7 +21,10 @@ public class DialogueSystem : MonoBehaviour
     }
     private void Update()
     {
-
+        if (playerHealth.currentHealth <= 0)
+        {
+            textbox.text = "Game Over.";
+        }
     }
 
     public void UpdateText(string dialogue)
@@ -39,4 +45,7 @@ public class DialogueSystem : MonoBehaviour
                 break;
         }
     }
+
+
+
 }

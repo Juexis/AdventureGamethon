@@ -22,4 +22,19 @@ public class SlimeMove : MonoBehaviour
 
         transform.Translate(direction.x * Time.deltaTime * speed, direction.y * Time.deltaTime * speed, 0);
     }
+
+    [SerializeField] private float healthValue;
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<Health>().deleteHealth(healthValue);
+
+
+        }
+    }
+
+
+
 }

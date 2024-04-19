@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     public bool inDialogue;
     public Animator playerAnim;
     public Rigidbody2D rb;
+    bool gameOver;
+    [SerializeField] private Health playerHealth;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     {
         //INPUTS
         //movement
-        if (!inDialogue)
+        if (!inDialogue && !gameOver)
         {
            horizontalInput = Input.GetAxis("Horizontal") * Time.deltaTime;
            verticalInput = Input.GetAxis("Vertical") * Time.deltaTime;
@@ -39,8 +41,16 @@ public class PlayerMovement : MonoBehaviour
                 playerAnim.SetFloat("lastmoveY", Input.GetAxis("Vertical"));
             }
         }
-        
+
+        if (playerHealth.currentHealth <= 0)
+        {
+            gameOver = true;
+            horizontalInput = 0;
+            verticalInput = 0;
+        }
     }
+
+
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontalInput, verticalInput).normalized * speed;
@@ -50,5 +60,8 @@ public class PlayerMovement : MonoBehaviour
     {
         inDialogue = true;
     }
+
+
+
 
 }
