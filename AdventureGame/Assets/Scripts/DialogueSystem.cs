@@ -39,22 +39,19 @@ public class DialogueSystem : MonoBehaviour
 
         switch (objectName)
         {
-            case "InteractableRange":
-                dialogue = "Press E to interact";
-                Debug.Log("Interactable");
-                UpdateText(dialogue);
-                break;
             case "Bed":
                 Pmove.InDialogue();
                 dialogue = "You are not tired...";
                 Debug.Log("you are not tired");
                 UpdateText(dialogue);
+                StartCoroutine(textFinished());
                 break;
             case "Door":
                 Pmove.InDialogue();
                 dialogue = "You don't feel like leaving yet.";
                 Debug.Log("door");
                 UpdateText(dialogue);
+                StartCoroutine(textFinished());
                 break;
         }
     }
@@ -77,6 +74,13 @@ public class DialogueSystem : MonoBehaviour
         }
 
 
+    }
+    IEnumerator textFinished()
+    {
+        yield return new WaitForSecondsRealtime(1.5f);
+        dialogue = string.Empty;
+        UpdateText(dialogue);
+        Pmove.inDialogue = false;
     }
 
     }
