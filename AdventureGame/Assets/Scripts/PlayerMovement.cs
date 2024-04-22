@@ -40,6 +40,10 @@ public class PlayerMovement : MonoBehaviour
                 playerAnim.SetFloat("lastmoveX", Input.GetAxis("Horizontal"));
                 playerAnim.SetFloat("lastmoveY", Input.GetAxis("Vertical"));
             }
+            if (Input.GetButtonDown("Fire1"))
+            {
+                playerAnim.SetTrigger("Attacking");
+            }
         }
 
         if (playerHealth.currentHealth <= 0)
