@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public class SlimeMove : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class SlimeMove : MonoBehaviour
     private PlayerMovement player;
     Tracker myTracker;
     float pushRadius = 15f;
+    [SerializeField] private Health slimeHealth;
 
     // Use this for initialization
     void Start()
@@ -22,16 +24,21 @@ public class SlimeMove : MonoBehaviour
     {
         Vector2 direction = myTracker.GetDirection();
         transform.Translate(direction.x * Time.deltaTime * speed, direction.y * Time.deltaTime * speed, 0);
-        
+
+        if (slimeHealth.currentHealth <= 0)
+        {
+
+            Destroy(gameObject);
+        }
     }
 
-    [SerializeField] private float healthValue;
+    [SerializeField] private float dmgValue;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<Health>().deleteHealth(healthValue);
+            collision.gameObject.GetComponent<Health>().deleteHealth(dmgValue);
             DoPush();
 
         }
