@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     float verticalInput;
     public bool inDialogue;
     public Animator playerAnim;
+    public Animator attackAnim;
     public Rigidbody2D rb;
     bool gameOver;
     [SerializeField] private Health playerHealth;
@@ -39,10 +40,13 @@ public class PlayerMovement : MonoBehaviour
             {
                 playerAnim.SetFloat("lastmoveX", Input.GetAxis("Horizontal"));
                 playerAnim.SetFloat("lastmoveY", Input.GetAxis("Vertical"));
+                attackAnim.SetFloat("lastmoveX", Input.GetAxis("Horizontal"));
+                attackAnim.SetFloat("lastmoveY", Input.GetAxis("Vertical"));
             }
             if (Input.GetButtonDown("Fire1"))
             {
                 playerAnim.SetTrigger("Attacking");
+                attackAnim.SetTrigger("Attacking");
             }
         }
 
