@@ -12,7 +12,6 @@ public class SlimeMove : MonoBehaviour
     float pushRadius = 15f;
     [SerializeField] private Health slimeHealth;
 
-    // Use this for initialization
     void Start()
     {
         myTracker = new Tracker(gameObject, "Player");
@@ -25,9 +24,9 @@ public class SlimeMove : MonoBehaviour
         Vector2 direction = myTracker.GetDirection();
         transform.Translate(direction.x * Time.deltaTime * speed, direction.y * Time.deltaTime * speed, 0);
 
-        if (slimeHealth.currentHealth <= 0)
+        //slime death
+        if (this.slimeHealth.currentHealth <= 0)
         {
-
             Destroy(gameObject);
         }
     }
@@ -63,10 +62,5 @@ public class SlimeMove : MonoBehaviour
             }
         }
 
-
-
-
-
     }
-
-    }
+ }

@@ -6,7 +6,7 @@ public class PAttack : MonoBehaviour
 {
     bool attacking = false;
     public BoxCollider2D attackBox;
-    float pushRadius = 5f;
+    float pushRadius = 1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,7 +52,7 @@ public class PAttack : MonoBehaviour
                 var direction = pushedBody.transform.position - transform.position;
 
                 // Normalization is important, to have constant unit!
-                pushedBody.AddForce(direction.normalized * 50, ForceMode2D.Force);
+                pushedBody.AddForce(direction.normalized * 100, ForceMode2D.Force);
 
             }
         }

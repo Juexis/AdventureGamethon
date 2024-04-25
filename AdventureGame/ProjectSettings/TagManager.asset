@@ -14,9 +14,9 @@ TagManager:
   - Water
   - UI
   - Player
-  - Foreground
-  - Walls
   - Background
+  - Walls
+  - Foreground
   - Enemy
   - 
   - 

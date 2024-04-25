@@ -29,25 +29,8 @@ public class PlayerMovement : MonoBehaviour
            horizontalInput = Input.GetAxis("Horizontal") * Time.deltaTime;
            verticalInput = Input.GetAxis("Vertical") * Time.deltaTime;
 
-            //interact
-
-            //set player animations
-            playerAnim.SetFloat("Horizontal", rb.velocity.x);
-            playerAnim.SetFloat("Vertical", rb.velocity.y);
-
-            //checks if last input given and sets it to the lastmove variables
-            if (Input.GetAxis("Horizontal") == 1 || Input.GetAxis("Horizontal") == -1 || Input.GetAxis("Vertical") == 1 || Input.GetAxis("Vertical") == -1)
-            {
-                playerAnim.SetFloat("lastmoveX", Input.GetAxis("Horizontal"));
-                playerAnim.SetFloat("lastmoveY", Input.GetAxis("Vertical"));
-                attackAnim.SetFloat("lastmoveX", Input.GetAxis("Horizontal"));
-                attackAnim.SetFloat("lastmoveY", Input.GetAxis("Vertical"));
-            }
-            if (Input.GetButtonDown("Fire1"))
-            {
-                playerAnim.SetTrigger("Attacking");
-                attackAnim.SetTrigger("Attacking");
-            }
+            //handle animations
+            PlayerAnimations();
         }
 
         if (playerHealth.currentHealth <= 0)
@@ -69,7 +52,25 @@ public class PlayerMovement : MonoBehaviour
         inDialogue = true;
     }
 
+    public void PlayerAnimations()
+    {
+        //set player animations
+        playerAnim.SetFloat("Horizontal", rb.velocity.x);
+        playerAnim.SetFloat("Vertical", rb.velocity.y);
 
-
+        //checks if last input given and sets it to the lastmove variables
+        if (Input.GetAxis("Horizontal") == 1 || Input.GetAxis("Horizontal") == -1 || Input.GetAxis("Vertical") == 1 || Input.GetAxis("Vertical") == -1)
+        {
+            playerAnim.SetFloat("lastmoveX", Input.GetAxis("Horizontal"));
+            playerAnim.SetFloat("lastmoveY", Input.GetAxis("Vertical"));
+            attackAnim.SetFloat("lastmoveX", Input.GetAxis("Horizontal"));
+            attackAnim.SetFloat("lastmoveY", Input.GetAxis("Vertical"));
+        }
+        if (Input.GetButtonDown("Fire1"))
+        {
+            playerAnim.SetTrigger("Attacking");
+            attackAnim.SetTrigger("Attacking");
+        }
+    }
 
 }
