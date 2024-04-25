@@ -16,6 +16,7 @@ public class PAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //enables attack box on activation
         if (Input.GetButton("Fire1"))
         {
             attacking = true;

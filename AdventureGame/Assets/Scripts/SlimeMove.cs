@@ -10,6 +10,7 @@ public class SlimeMove : MonoBehaviour
     private PlayerMovement player;
     Tracker myTracker;
     float pushRadius = 15f;
+    public bool isKilled;
     [SerializeField] private Health slimeHealth;
 
     void Start()
@@ -27,6 +28,8 @@ public class SlimeMove : MonoBehaviour
         //slime death
         if (this.slimeHealth.currentHealth <= 0)
         {
+            isKilled = true;
+            Debug.Log(isKilled +"iskiulled");
             Destroy(gameObject);
         }
     }
